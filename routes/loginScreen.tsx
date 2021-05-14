@@ -2,6 +2,7 @@ import { TextInput } from 'react-native-gesture-handler';
 import React from 'react';
 import { Button, StyleSheet, Text, View ,Image, Dimensions} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import {CustomButton} from '../components/components';
 const a=1;
 
 const LoginComponent=({route,navigation})=>{
@@ -13,10 +14,12 @@ return(
     </View>
     <View style={styles.viewTwo}>
         <View style={styles.subView}>
+            <Text>Login</Text>
             <TextInput style={styles.input} placeholder='Email'></TextInput>
             <TextInput style={styles.input} placeholder='Password'></TextInput>
             <Button title='Login' onPress={()=>{ navigation.navigate('HomeScreen')}}/>
             <Button title='Register' onPress={()=>{navigation.navigate('RegisterScreen')}}/>
+            <CustomButton></CustomButton>
         </View>
     </View>
 </View>
@@ -43,12 +46,13 @@ orbitzLogo : {
 },
 subView : {
     width : '90%',
-    height : '80%',
-    backgroundColor : '#6D69E1',
+    height : '60%',
+    backgroundColor : 'white',
     justifyContent : 'center',
     padding : 20,
     borderRadius : 20,
     shadowColor: "#000",
+    alignItems: 'center',
     shadowOffset: {
 	width: 0,
 	height: 2,
@@ -58,20 +62,13 @@ shadowRadius: 3.84,
 elevation: 5,
 },
 input : {
-    backgroundColor : 'white',
+    backgroundColor : '#eeeeee',
     margin : 10,
     height : 45,
-    borderRadius : 20,
+    width: '100%',
+    borderRadius : 5,
     textAlign : 'center',
-    shadowColor: "#000",
-shadowOffset: {
-	width: 0,
-	height: 2,
-    
-},
-shadowOpacity: 0.25,
-shadowRadius: 3.84,
-elevation: 5,
+
 }
 })
 export default LoginComponent;

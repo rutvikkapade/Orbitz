@@ -9,6 +9,7 @@ import MapView, {Marker} from 'react-native-maps';
 import LoginComponent from './routes/loginScreen';
 import RegisterComponent from './routes/registerScreen';
 import HomeScreenComponent from './routes/homeScreen';
+import SatelliteScreenComponent from './routes/satelliteScreen';
 const Stack=createStackNavigator();
 let a=1;
 
@@ -73,6 +74,7 @@ export default function App() {
         }></Stack.Screen>
         <Stack.Screen name='TestScreen' component={testScreen}></Stack.Screen>
         <Stack.Screen name='MapScreen' component={Maps}></Stack.Screen>
+        <Stack.Screen name='SatelliteScreen' component={SatelliteScreenComponent}></Stack.Screen>
       </Stack.Navigator>
       
       }</NavigationContainer>
