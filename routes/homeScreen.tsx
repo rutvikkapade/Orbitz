@@ -4,9 +4,8 @@ import { StatusBar } from 'expo-status-bar';
 import React,{useEffect, useState} from 'react';
 import { Button, StyleSheet, Text, View ,Image, Dimensions,BackHandler,Alert} from 'react-native';
 import { createStackNavigator} from '@react-navigation/stack';
-import {Hello} from '../data/dBService';
+import {getSatelliteData} from '../data/dataService'
 const HomeScreenComponent=({ navigation })=> {
-  Hello();
   useEffect(() => {
     const backAction = () => {
       return true;
@@ -27,6 +26,11 @@ const HomeScreenComponent=({ navigation })=> {
         const dataOne = await resp.json();
         navigation.navigate('TestScreen', { data: dataOne });
       } } />
+    <Button title='get satellites' onPress={async ()=>{
+      const resp=await fetch('https://orbitz-server.herokuapp.com/satelliteData');
+      const dataOne=await resp.json();
+      navigation.navigate('SatelliteScreen',{data:dataOne});
+    }}/>
     </View>
   );
 }
