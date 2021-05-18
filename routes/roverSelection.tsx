@@ -80,7 +80,7 @@ const RoverSelectionComponent=({route,navigation})=>{
             </View>
             {(roverValue=="curiosity"?<CameraComponentCuriosity></CameraComponentCuriosity>:<CameraComponentOpportunityAndSpirit></CameraComponentOpportunityAndSpirit>)}
             <View style={styles.pickerView}>
-                <View style={styles.label}>
+                <View style={styles.label}> 
                     <Text style={styles.labelText}>Set Sol(1-5000) :</Text>
                 </View>
                 <View style={styles.valueViewer}>
