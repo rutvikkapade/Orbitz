@@ -3,9 +3,10 @@ import React from 'react';
 import { Button, StyleSheet, Text, View ,Image, Dimensions} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import {CustomButton} from '../components/components';
-const a=1;
+import {storage} from '../App';
 
 const LoginComponent=({route,navigation})=>{
+
 return(
 <View > 
     <StatusBar></StatusBar> 
@@ -19,7 +20,7 @@ return(
             <TextInput style={styles.input} placeholder='Password'></TextInput>
             <Button title='Login' onPress={()=>{ navigation.navigate('HomeScreen')}}/>
             <Button title='Register' onPress={()=>{navigation.navigate('RegisterScreen')}}/>
-            <CustomButton></CustomButton>
+            <CustomButton navigation={navigation} route={route}></CustomButton>
         </View>
     </View>
 </View>

@@ -10,8 +10,27 @@ import LoginComponent from './routes/loginScreen';
 import RegisterComponent from './routes/registerScreen';
 import HomeScreenComponent from './routes/homeScreen';
 import SatelliteScreenComponent from './routes/satelliteScreen';
+import RoverImagesComponent from './routes/roverImages';
+import RoverSelectionComponent from './routes/roverSelection';
 const Stack=createStackNavigator();
-let a=1;
+import Storage from 'react-native-storage';
+import AsyncStorage from '@react-native-community/async-storage';
+
+
+export const storage=new Storage({
+    size : 1000,
+    storageBackend: AsyncStorage,
+    defaultExpires : null,
+    enableCache : true,
+})
+storage.save({
+    key : 'loginInfo',
+    data : {
+        username : null,
+        loggedIn : false,
+
+    }
+})
 
 const testScreen=({route,navigation})=>{
   const{data}=route.params;
@@ -75,6 +94,8 @@ export default function App() {
         <Stack.Screen name='TestScreen' component={testScreen}></Stack.Screen>
         <Stack.Screen name='MapScreen' component={Maps}></Stack.Screen>
         <Stack.Screen name='SatelliteScreen' component={SatelliteScreenComponent}></Stack.Screen>
+        <Stack.Screen name='RoverImageScreen' component={RoverImagesComponent}></Stack.Screen>
+        <Stack.Screen name='RoverOptions' component={RoverSelectionComponent}></Stack.Screen>
       </Stack.Navigator>
       
       }</NavigationContainer>
