@@ -30,11 +30,6 @@ const HomeScreenComponent=({ navigation })=> {
       const dataOne=await resp.json();
       navigation.navigate('SatelliteScreen',{data:dataOne});
     }}/>
-    <Button title='Curiosity Rover Images' onPress={async()=>{
-      const resp=await fetch('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=300&camera=navcam&api_key=8aLgViIFEf7gbv2t5m9QA4dAJ1Flv0IQsEjJ8bkU');
-      const dataOne=await resp.json();
-      navigation.navigate('RoverImageScreen',{data:dataOne});
-    }}/>
     <Button title='Rover Images' onPress={()=>{
       navigation.navigate('RoverOptions');
     }}/>
