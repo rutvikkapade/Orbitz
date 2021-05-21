@@ -3,10 +3,14 @@ import React from 'react';
 import { Button, StyleSheet, Text, View ,Image, Dimensions} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import {CustomButton} from '../components/components';
-import {storage} from '../App';
+import {storage} from '../storage/storage';
 
 const LoginComponent=({route,navigation})=>{
-
+storage.load({
+    key : 'loginInfo',
+    autoSync: true,
+    syncInBackground: true,
+}).then(data=>console.log(data.username)).catch(err=>console.log(err));
 return(
 <View > 
     <StatusBar></StatusBar> 
@@ -18,7 +22,16 @@ return(
             <Text>Login</Text>
             <TextInput style={styles.input} placeholder='Email'></TextInput>
             <TextInput style={styles.input} placeholder='Password'></TextInput>
-            <Button title='Login' onPress={()=>{ navigation.navigate('HomeScreen')}}/>
+            <Button title='Login' onPress={()=>{ 
+                storage.save({
+                    key : 'loginInfo',
+                    data : {
+                        username : "rutvik kapade",
+                        loggedIn : true,
+                
+                    }
+                });
+                navigation.navigate('HomeScreen')}}/>
             <Button title='Register' onPress={()=>{navigation.navigate('RegisterScreen')}}/>
             <CustomButton navigation={navigation} route={route}></CustomButton>
         </View>
