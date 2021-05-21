@@ -2,21 +2,37 @@ import { TextInput } from 'react-native-gesture-handler';
 import React from 'react';
 import { Button, StyleSheet, Text, View ,Image, Dimensions} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-
+const paletone = {
+    backg : '#333345',
+    backd : '#23232f',
+    hlit3: '#725A7A',
+    hlit2: '#bd6868',
+    hlit1: '#ff7c75'
+}
 const RegisterComponent=({route,navigation})=>{
 return(<View>
     <View > 
     <StatusBar></StatusBar> 
     <View style={styles.viewOne}>
-        <Image style={styles.orbitzLogo} source={require('../assets/splash.png')} />
+        <Image style={styles.orbitzLogo} source={require('../assets/ORBITZ.png')} />
     </View>
     <View style={styles.viewTwo}>
-        <View style={styles.subView}>
+
+    <TextInput placeholderTextColor={paletone.hlit2} style={styles.input} placeholder='Email'></TextInput>
+            <TextInput placeholderTextColor={paletone.hlit2}  style={styles.input} placeholder='Password'></TextInput>
+
+            <TouchableOpacity style= {nstyles.touchbutts} onPress={()=>{ navigation.navigate('HomeScreen')}}>
+                <Text  style = {nstyles.touchtexts}>Register</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style= {{bottom:70, position: 'absolute'}} onPress={()=>{ navigation.navigate('HomeScreen')}}>
+                <Text  style = {nstyles.regtxt}>Login</Text>
+            </TouchableOpacity>
+       {/*  <View style={styles.subView}>
             <TextInput style={styles.input} placeholder='Email'></TextInput>
             <TextInput style={styles.input} placeholder='Password'></TextInput>
             <Button title='Login' onPress={()=>{ navigation.navigate('HomeScreen')}}/>
             <Button title='Register' onPress={()=>{navigation.navigate('RegisterScreen')}}/>
-        </View>
+        </View> */}
     </View>
 </View>
 </View>)
@@ -25,19 +41,20 @@ const styles = StyleSheet.create({
     viewOne : {
         height : '30%',
         width : '100%',
-        backgroundColor : 'white',
+        backgroundColor : paletone.backd,
         alignItems : 'center',
         justifyContent : 'center',
     },
     viewTwo : {
         height : '70%',
         width : '100%',
-        backgroundColor : 'white',
+        backgroundColor : paletone.backd,
         alignItems : 'center'
     },
     orbitzLogo : {
-        height : 100,
-        width :  200,
+        height : 150,
+        width :  '70%',
+        resizeMode: 'contain'
     },
     subView : {
         width : '90%',
@@ -56,21 +73,54 @@ const styles = StyleSheet.create({
     elevation: 5,
     },
     input : {
-        backgroundColor : 'white',
-        margin : 10,
+        backgroundColor : paletone.backd,
+        borderBottomWidth: 1,
+        borderBottomColor: paletone.hlit1,
+    
+        marginHorizontal: 30,
+        marginVertical: 30,
         height : 45,
-        borderRadius : 20,
-        textAlign : 'center',
-        shadowColor: "#000",
-    shadowOffset: {
-        width: 0,
-        height: 2,
+        width: '70%',
+        color: paletone.hlit2,
+        /* borderRadius : 5, */
+        textAlign : 'left',
+        fontSize: 20,
+        paddingLeft: 10,
         
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+        
+        textDecorationColor: paletone.hlit2
+    
     }
     })
+    const nstyles = StyleSheet.create (
+        {
+            touchbutts : {
+                backgroundColor: paletone.hlit1,
+                width: '85%',
+                height: 50,
+                borderRadius: 30,
+                justifyContent: 'center',
+                marginVertical: 30
+                
+    
+                
+    
+            },
+            touchtexts : {
+                fontSize : 30,
+                color: 'white',
+                alignSelf: 'center',
+                
+            },
+            regtxt: {
+                fontSize : 20,
+                color: paletone.hlit2,
+                alignSelf: 'center',
+                fontWeight: "bold"
+                
+            }
+        }
+    )
+
 
 export default RegisterComponent;
