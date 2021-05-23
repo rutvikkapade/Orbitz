@@ -44,7 +44,7 @@ const RoverImagesComponent=({route,navigation})=>{
 return(
     <View style={styles.mainContainer}>
         <FlatList
-    data={data.data.photos} initialNumToRender={10} windowSize={10} maxToRenderPerBatch={10} updateCellsBatchingPeriod={30} removeClippedSubviews={false} onEndReachedThreshold={0.1} renderItem={renderItem} keyExtractor={item=>item.id}
+    data={data.data.photos} initialNumToRender={10} windowSize={10} maxToRenderPerBatch={10} updateCellsBatchingPeriod={30} removeClippedSubviews={false} onEndReachedThreshold={0.1} renderItem={renderItem} keyExtractor={item=>item.id.toString()}
     />   
     </View>
     

@@ -1,6 +1,6 @@
 import { TextInput } from 'react-native-gesture-handler';
 import React from 'react';
-import { Button, StyleSheet, Text, View ,Image, Dimensions} from 'react-native';
+import { Button, StyleSheet, Text, View ,Image, Dimensions,TouchableOpacity} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 const paletone = {
     backg : '#333345',

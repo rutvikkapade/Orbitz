@@ -24,7 +24,8 @@ const HomeScreenComponent=({ navigation })=> {
         navigation.navigate('TestScreen', { data: dataOne });
       } } />
     <Button title='get satellites' onPress={async ()=>{
-      const resp=fetch('')
+      const resp=await fetch('https://orbitz-server.herokuapp.com/satelliteData');
+      const dataOne=await resp.json();
       navigation.navigate('SatelliteScreen',{data:dataOne});
     }}/>
     <Button title='Curiosity Rover Images' onPress={async()=>{
