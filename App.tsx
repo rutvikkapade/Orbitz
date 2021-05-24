@@ -12,6 +12,9 @@ import HomeScreenComponent from './routes/homeScreen';
 import SatelliteScreenComponent from './routes/satelliteScreen';
 import RoverImagesComponent from './routes/roverImages';
 import RoverSelectionComponent from './routes/roverSelection';
+import {Isstable} from './components/Isstable'
+import {Fancybutts} from './components/Fancybutts'
+import {paletone} from './components/colors'
 const Stack=createStackNavigator();
 
 
@@ -21,11 +24,20 @@ const testScreen=({route,navigation})=>{
   const latitude=data.latitude;
   console.log(longitude+' '+latitude);
   return(
-    <>
-    <Text>{JSON.stringify(data)}</Text>
-    <Button title='Render Map' onPress={()=>{
+    <View style = {styles.coordview}>
+   {/*  <Text style= {styles.coordtext}>{JSON.stringify(data)}</Text> */}
+    
+    <Isstable data={data}/>
+
+    {/* <Button title='Render Map' onPress={()=>{
       navigation.navigate('MapScreen',{longitude :longitude ,latitude:latitude });
-    }}/></>
+    }}/> */}
+    
+    <Fancybutts text= 'Render Map' opressor={()=>{
+      navigation.navigate('MapScreen',{longitude :longitude ,latitude:latitude });
+    }}  />
+    
+    </View>
   )
 }
 
@@ -100,4 +112,19 @@ const styles = StyleSheet.create({
     height: 35,
     width: 35
   },
+  coordview:{
+    backgroundColor: paletone.backd,
+    height: "100%",
+    padding: 20,
+    /* justifyContent: 'center', */
+    alignItems: 'center'
+  },
+  coordtext: {
+    color: paletone.hlit3,
+    backgroundColor: paletone.backg,
+    borderRadius: 10,
+    padding: 20,
+    letterSpacing: 2,
+    marginVertical: 30
+  }
 });

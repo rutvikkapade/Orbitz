@@ -1,6 +1,7 @@
 import React from 'react'
 import { View ,Image,StyleSheet, Button,Text} from 'react-native';
 import { FlatList } from 'react-native-gesture-handler'
+import { paletone } from '../components/colors'
 
 const Item=({data})=>{
 return(
@@ -56,24 +57,36 @@ const styles=StyleSheet.create({
     mainContainer : {
         width : '100%',
         alignItems : 'center',
-        backgroundColor : '#E9EEF6',
-    },horizontalView:{
+        backgroundColor : paletone.backd,
+        justifyContent:'center',
+        
+        
+    },
+    horizontalView:{
         flexDirection : 'row',
         margin : 5,
-        backgroundColor : '#B7C7E4',
+        backgroundColor : paletone.backd,
+        borderRadius:5,
+        
     },
     container:{
-        width: '100%',
+        width: '95%',
         padding : 20,
-        borderColor : '#e2e5f4',
+        backgroundColor: paletone.backg,
+        
         borderStyle : 'solid',
-        borderWidth : 5,
+        borderWidth : 0,
+        borderRadius: 10,
+        marginVertical: 10,
+        alignSelf: 'center',
     },
     imageView:{
         width:'100%',
         height:'100%',
         shadowColor: "#000",
+        justifyContent:'center',
     alignItems: 'center',
+    
     shadowOffset: {
 	width: 0,
 	height: 2,
@@ -87,28 +100,33 @@ elevation: 5,
         width:'100%', 
         height : 300,
         marginBottom : 10,
-        borderRadius : 10
+        borderRadius : 10,
+        
     },
     infoView:{
         alignItems : 'center',
-        borderRadius : 15,
+        borderRadius : 20,
     },
     labelView:{
         alignItems: 'center',
         width : '50%',
-        borderWidth : 1,
-        borderColor : 'white',
+        borderRightWidth : 1,
+        borderColor : paletone.hlit3,
+        
+        
     },valueView :{
         alignItems: 'center',
         width : '50%',
-        borderWidth : 1,
-        borderColor : 'white',
+        borderLeftWidth : 0,
+        borderColor : paletone.hlit3,
     }
     ,label :{
-        fontSize : 18
+        fontSize : 18,
+        color: 'white'
     },
     value :{
-        fontSize : 18
+        fontSize : 18,
+        color: 'white'
     }
 })
 

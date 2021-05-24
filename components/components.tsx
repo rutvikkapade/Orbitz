@@ -21,7 +21,7 @@ return(
 const styles=StyleSheet.create({
 button : {
     width : 250 ,
-    height : 50,
+    height : 80,
     backgroundColor : 'orange',
     alignItems : 'center',
     justifyContent : 'center',
@@ -30,6 +30,7 @@ button : {
 label : {
     color: 'black',
     fontWeight : 'bold',
+    fontSize:20
 
 }
 })
